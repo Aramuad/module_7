@@ -9,7 +9,6 @@ package lab_12;
 import java.util.Scanner;
 public class GradeBook {
 	private int[] classSize;
-	private int score;
 	
 	GradeBook() {
 	}
@@ -18,7 +17,7 @@ public class GradeBook {
 		classSize = new int[size];
 		return classSize;
 	}
-	private void assignGrades(int student, int score) {
+	private void setGrades(int student, int score) {
 		classSize[student] = score;
 	}
 	private int getGrades(int student) {
@@ -27,7 +26,7 @@ public class GradeBook {
 	public String[] printGrades(int[] grades) {
 		String[] phrase = new String[grades.length];
 		for(int i = 0; i < grades.length; i++) {
-			score = grades[i];
+			int score = grades[i];
 			if(score >= 90 && score <= 100) {
 				phrase[i] = "Student " + i + " score is " + score + " and grade is A";
 			} else if(score >= 80 && score < 90) {
@@ -49,11 +48,11 @@ public class GradeBook {
 		Scanner sc = new Scanner(System.in);
 		System.out.println();
 		System.out.print("Enter the class size: ");
-		int kids = sc.nextInt();
-		int[] classReportCard = grades.makeGradeBook(kids);
+		int people = sc.nextInt();
+		int[] classReportCard = grades.makeGradeBook(people);
 		for(int i = 0; i < classReportCard.length; i++) {
 			System.out.print("Enter student " + i + "'s grade: ");
-			grades.assignGrades(i, sc.nextInt());
+			grades.setGrades(i, sc.nextInt());
 		}
 		System.out.println();
 		System.out.println("Class size: " + classReportCard.length);
@@ -69,5 +68,4 @@ public class GradeBook {
 		System.out.println();
 		sc.close();
 	}
-
 }
