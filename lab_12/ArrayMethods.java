@@ -40,7 +40,7 @@ public class ArrayMethods {
 		}
 		return reversed;
 	}
-	public void getArray(int[] arr) {
+	private void getArray(int[] arr) {
 		for(int i = 0; i < arr.length; i++) {
 			System.out.print(arr[i] + ", ");
 			if(i == arr.length) {
